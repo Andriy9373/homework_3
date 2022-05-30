@@ -47,6 +47,7 @@ class  Human(Person):
         else:
             print(f'This house is already sold :(')
 
+
 class House(ABC):
 
     def __init__(self, area, cost, id, is_sold):
@@ -57,6 +58,7 @@ class House(ABC):
 
     def __repr__(self):
         return f'House №{self.id}'
+
 
 class Home(House):
 
@@ -74,6 +76,7 @@ class RealtorMeta(type):
             instance = super().__call__(*args, **kwargs)
             cls._instances[cls] = instance
         return cls._instances[cls]
+
 
 class Realtor(metaclass=RealtorMeta):
 
@@ -93,6 +96,7 @@ class Realtor(metaclass=RealtorMeta):
     def steal_your_money(self, human):
         if randint(0, 10) == 0:
             human.availability_of_money = 0
+
 
 human1 = Human('John', 19)
 human1.make_money()
